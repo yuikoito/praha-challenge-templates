@@ -58,17 +58,17 @@ describe("test for getFirstNameThrowIfLong", () => {
     expect(data).toBe("hoge");
     spy.mockRestore();
   });
-  test("given maxNameLength is less than maxNameLength of NameApiService, and first name is more than the given maxNameLength characters", async () => {
+  test("given maxNameLength is less than MAX_LENGTH of NameApiService, and first name is more than the given maxNameLength characters", async () => {
     const spy = jest
       .spyOn(nameApiService, "getFirstName")
       .mockResolvedValue("hoge");
     const data = getFirstNameThrowIfLong(3, nameApiService);
     expect(spy).toHaveBeenCalled();
-    expect(data).rejects.toThrow("firstName is too long!");
+    expect(data).rejects.toThrow("first_name too long");
     spy.mockRestore();
   });
   // @refs https://dev.classmethod.jp/articles/testing-exception-handling-with-jest/
-  test("first name is more than maxNameLength characters of NameApiService", async () => {
+  test("first name is more than MAX_LENGTH characters of NameApiService", async () => {
     const spy = jest
       .spyOn(nameApiService, "getFirstName")
       .mockImplementation(() => {
