@@ -12,7 +12,7 @@ describe("test for sumOfArray", () => {
     expect(sumOfArray([1, 1])).toBe(2);
   });
   // @refs https://stackoverflow.com/questions/46042613/how-to-test-the-type-of-a-thrown-exception-in-jest
-  test("put [1, 1] in an argument and should throw TypeError", () => {
+  test("put [] in an argument and should throw TypeError", () => {
     expect(() => sumOfArray([])).toThrow(TypeError);
   });
 });
@@ -21,7 +21,7 @@ describe("test for asyncSumOfArray", () => {
   test("put [1, 1] in an argument and should return 2", async () => {
     expect(await asyncSumOfArray([1, 1])).toBe(2);
   });
-  test("put [1, 1] in an argument and should throw TypeError", async () => {
+  test("put [] in an argument and should throw TypeError", async () => {
     await expect(() => asyncSumOfArray([])).rejects.toThrow(TypeError);
   });
 });
